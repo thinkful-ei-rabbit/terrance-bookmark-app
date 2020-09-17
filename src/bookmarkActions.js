@@ -5,7 +5,7 @@ import api from './api';
 const generateLayout = () => {
   return `
     <div class="header">
-			<h1>{Name}-bookmarks-app</h1>
+			<h1>Terrance's-bookmarks-app</h1>
 			<div class="action-button">
 				<button class="new-bookmark">+ New &#128278;</button>
 				<select name="filter" id='filter'>
