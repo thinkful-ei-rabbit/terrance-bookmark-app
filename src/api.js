@@ -1,4 +1,4 @@
-const BASE_URL = 'https://thinkful-list-api.herokuapp.com/terrat/bookmarks';
+const BASE_URL = 'https://thinkful-list-api.herokuapp.com/terrat';
 
 const fetchApi = function (...args) {
   return fetch(...args)
@@ -8,20 +8,29 @@ const fetchApi = function (...args) {
 };
 
 function getBookmarks(){
-    return fetchApi(`${BASE_URL}`)
+    return fetchApi(`${BASE_URL}/bookmarks`)
 }
 
-const createBookmark = function (bookmarkData) {
-  const newBookmark = JSON.stringify(bookmarkData);
-
-  return fetchApi(`${BASE_URL}`, {
+const createBookmark = function (json) {
+  return fetchApi(`${BASE_URL}/bookmarks`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: newBookmark
+    body: json
   });
 };
+// const createBookmark = function (bookmarkData) {
+//   const newBookmark = JSON.stringify(bookmarkData);
+
+//   return fetchApi(`${BASE_URL}`, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: newBookmark
+//   });
+// };
 
 const updateBookmark = function (id, bookmarkData) {
   const updateData = JSON.stringify(bookmarkData);
