@@ -31,9 +31,9 @@ const generateLayout = () => {
 
 function bookmarkFormFields() {
 	return `
-		<label>Title:</label>
+		<label for="bookmark-title">Title:</label>
 		<input type="text" id='bookmark-title' placeholder="JavaScript Classes, API Docs, NodeJS" required>
-		<label>URL:</label>
+		<label for="bookmark-url">URL:</label>
 		<input type="text" id='bookmark-url' placeholder="https://developer.mozilla.org/" required>
 
 		<span id='rating-container'>
@@ -50,7 +50,7 @@ function bookmarkFormFields() {
 		</span>
 
 		<div>
-			<label>Description:</label>
+			<label for="bookmark-description">Description:</label>
 			<textarea name="new-bookmark-entry" id="bookmark-description" placeholder="Describe your bookmark (optional)" cols="15" rows="5"></textarea>
 		</div>
 	`
@@ -85,15 +85,20 @@ function createBookmarkElement(bookmark) {
 						<div>&#128065</div>
 					</div>
 				</div>
-				<div>${bookmark.desc}</div><br>
+				<div style="margin-bottom: 50px">
+					<div>
+						${bookmark.desc}
+					</div><br>
+					<div style="float: right;">
+						<a href="${bookmark.url}" target="_blank">
+							<span class="go-to-site">Visit Site</span>
+						</a>
+					</div>
+				</div>
 				<div class="expanded">
 					<form class="bookmark-form">
 						${bookmarkFormFields()}
-
 						<div class="action-button">
-							<a href="${bookmark.url}" target="_blank">
-								<span class="go-to-site">Go to site</span>
-							</a>
 							<button type="submit" class="update">Update</button>
 							<span class="delete">Delete</span>
 						</div>

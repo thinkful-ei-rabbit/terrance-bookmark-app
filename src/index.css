@@ -177,17 +177,9 @@ button, span.delete, span.go-to-site {
 }
 
 input[name="rating"] {
-  /* opacity: 0; */
-  z-index: 10000;
+  cursor: pointer;
 }
 
 .rating {
-  cursor: pointer;
-  /* margin-left: -25px; */
   padding: 10px;
-  z-index: -50;
-}
-
-.rating:hover {
-  font-size: 25px;
 }
